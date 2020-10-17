@@ -14,10 +14,9 @@ def plot_image_custom(predictions_array, img, class_names):
                                          100*np.max(predictions_array)),
                fontsize=18,color='blue',)
 
-class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
-               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-def plot_value_array_custom(predictions_array):
+
+def plot_value_array_custom(predictions_array, class_names):
     plt.grid(False)
     plt.xticks(ticks=range(10), labels=class_names
                , fontsize=16
