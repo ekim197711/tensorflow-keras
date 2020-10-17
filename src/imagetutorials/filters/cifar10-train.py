@@ -30,14 +30,14 @@ model = keras.Sequential([
     keras.layers.Dense(512, activation='relu'),
     # keras.layers.Dense(256, activation='relu'),
     keras.layers.Dropout(0.1),
-    keras.layers.Dense(20, activation='softmax')
+    keras.layers.Dense(10, activation='softmax')
 ])
 # opt = keras.optimizers.RMSprop(learning_rate=0.0001, decay=1e-6)
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
-model.fit(train_images_input, train_labels, epochs=10, batch_size=50)
+model.fit(train_images_input, train_labels, epochs=20, batch_size=50)
 model.summary()
 model.save("./mycifar10.model")
 test_loss, test_acc = model.evaluate(test_images_input,  test_labels, verbose=2)
