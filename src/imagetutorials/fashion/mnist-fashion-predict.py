@@ -11,7 +11,9 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 model = tf.keras.models.load_model('../../models/myfashion.model')
 probability_model = tf.keras.Sequential([model,
                                          tf.keras.layers.Softmax()])
-mikesimg =image.load_img("mikesimg.png", color_mode="grayscale", target_size=(28, 28))
+
+# mikesimg =image.load_img("mikesimg.png", color_mode="grayscale", target_size=(28, 28))
+mikesimg = test_images[2006];
 origarray = image.img_to_array(mikesimg, dtype=float)
 input_arr = origarray / 255.0
 input_arr = tf.transpose(input_arr, [2,0,1])
@@ -19,7 +21,7 @@ input_arr = tf.transpose(input_arr, [2,0,1])
 result = probability_model.predict(input_arr)
 print(f'result predict: {result}')
 
-plt.figure(figsize=(6,3))
+plt.figure(figsize=(10,10))
 plt.subplot(1,2,1)
 pretty.plot_image_custom(result, origarray, class_names)
 plt.subplot(1,2,2)

@@ -27,3 +27,13 @@ for i in range(25):
     plt.colorbar()
     plt.xlabel(class_names[train_labels[i]])
 plt.show()
+plt.figure(figsize=(10,10))
+for i in range(25):
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(test_images[i], cmap=plt.cm.binary)
+    plt.colorbar()
+    plt.xlabel(class_names[test_labels[i]])
+plt.show()
